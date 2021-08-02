@@ -4,7 +4,7 @@
   box-sizing: border-box;
 }
 body {
-  background-image: linear-gradient(120deg, #96e8e0 0%, #3bd16f 100%);
+  background-color: #a4e7ca;
   color: #ffffff;
   font-family: "Poppins", sans-serif;
   min-height: 100vh;
@@ -28,13 +28,13 @@ form button {
   background: white;
 }
 form button {
-  color: #00acb1;
+  color: #00d6c0;
   background: #f7fffe;
   cursor: pointer;
   transition: all 0.3s ease;
 }
 form button:hover {
-  background: #00acb1;
+  background: #00d6c0;
   color: white;
 }
 .todo-container {
@@ -115,7 +115,7 @@ select {
   overflow: hidden;
 }
 select {
-  color: #00acb1;
+  color: #00d6c0;
   font-family: "Poppins", sans-serif;
   cursor: pointer;
   width: 12rem;
@@ -127,7 +127,7 @@ select {
   top: 0;
   right: 0;
   padding: 1rem;
-  background: #00acb1;
+  background: #00d6c0;
   cursor: pointer;
   pointer-events: none;
 }
