@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import './App.css';
 //Importing Components
 import Form from "./components/Form";
@@ -6,13 +6,15 @@ import TodoList from "./components/TodoList";
 
 function App() {
   const [inputText, setInputText] = useState("");
+  const [todos, setTodos] = useState([]);
   return (
     <div className="App">
       <header>
-        <h1>seeULater {inputText}</h1>
+        <h1>seeULater</h1>
       </header>
-      <Form setInputText={setInputText} />
-      <TodoList/>
+      <Form
+        inputText={inputText} todos={todos} setTodos={setTodos} setInputText={setInputText} />
+      <TodoList setTodos={setTodos} todos={todos} />
     </div>
   );
 }
