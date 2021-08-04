@@ -17,8 +17,9 @@ header,
 form {
   min-height: 20vh;
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
+  margin-left: 20px;
 }
 form input,
 form button {
@@ -39,12 +40,13 @@ form button:hover {
 }
 .todo-container {
   display: flex;
-  justify-content: center;
+  justify-content: left;
   align-items: center;
+  margin-left: 12px;
 }
 
 .todo-list {
-  min-width: 30%;
+  min-width: 50%;
   list-style: none;
 }
 
