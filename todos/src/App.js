@@ -10,26 +10,42 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [status, setStatus] = useState("all");
   const [filteredTodos, setFilteredTodos] = useState([]);
-  
+
+  //RUN ONCE when the app start
+  useEffect(() => {
+    getLocalTodos();
+  }, []);
   //USE EFFECT
   //핸들러가 실행될 때 마다 실행하는 함수.
-  useEffect(()=> {
+  useEffect(() => {
     // console.log('hey');
     filterHandler();
-  }, [todos]);
+    saveLocalTodos();
+  }, [todos, status]);
   //Functions
   const filterHandler = () => {
     switch (status) {
       case 'completed':
-        setFilteredTodos(todos.filter(todo => todo.completed === true));
+        setFilteredTodos(todos.filter((todo) => todo.completed === true));
         break;
-      case 'umcompleted':
-        setFilteredTodos(todos.filter(todo => todo.completed === false));
+      case 'uncompleted':
+        setFilteredTodos(todos.filter((todo) => todo.completed === false));
         break;
       default:
         setFilteredTodos(todos);
         break;
-
+    }
+  };
+  //Save to Local
+  const saveLocalTodos = () => {
+      localStorage.setItem('todos', JSON.stringify(todos));
+  };
+  const getLocalTodos = () => {
+    if(localStorage.getItem('todos') === null){
+      localStorage.setItem('todos', JSON.stringify([]));
+    }else{
+      let todoLocal = JSON.parse(localStorage.getItem("todos"));
+      setTodos(todoLocal);
     }
   }
   return (
@@ -43,9 +59,13 @@ function App() {
         setTodos={setTodos}
         setInputText={setInputText}
         setStatus={setStatus}
-        filteredTodos={filteredTodos}
+
       />
-      <TodoList setTodos={setTodos} todos={todos} />
+      <TodoList
+        filteredTodos={filteredTodos}
+        setTodos={setTodos}
+        todos={todos}
+      />
     </div>
   );
 }
